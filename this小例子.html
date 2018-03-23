@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		@keyframes zou{
+			0%{
+				top: 0;
+				left: 0;
+			}
+			50%{
+				top: 100px;
+				left: 0;
+			}
+			100%{
+				top: 0;
+				left: 0;
+				color: #fff;
+				background: red;
+			}
+		}
+		ul{
+			width: 285px;
+			margin: 10px auto;
+			list-style: none;
+			/*overflow: hidden;*/
+		}
+		li{
+			width: 50px;
+			height: 50px;
+			background: red;
+			text-align: center;
+			font:30px/50px "simhei";
+			float: left;
+			margin-right: 5px;
+			color: #fff;
+			border-radius: 50%;
+			transition: 1s;
+			position: relative;
+		}
+		.active{
+			animation: 2s zou linear;
+			background: #fff;
+			color: #000;
+			border: 1px solid red;
+		}
+	</style>
+	<script>
+		window.onload =function(){
+			var aLi = document.getElementsByTagName('li');
+			var that = null;//声明一个变量
+
+			//循环aLi数组
+			for (var i = 0; i < aLi.length ; i++) {
+				//使用匿名函数
+				// aLi[i].onclick = function(){
+					//将除了当前对象以外的类名清除
+				// 	for (var i = 0; i < aLi.length; i++) {
+				// 		aLi[i].className = '';
+				// 	}
+				// 	this.className = 'active';	//当前对象的类名变为active	
+				// };
+
+				//使用命名函数
+				aLi[i].onclick = function(){
+					that = this;//将当前对象赋给变量that
+					fn1();//直接调用函数（会直接执行）（此时的that指向当前对象）
+				};
+			}
+
+			//声明一个函数	
+			function fn1(){
+				for (var i = 0; i < aLi.length; i++) {
+			 		aLi[i].className = '';
+			 	}
+				that.className = 'active';//将that变量的类名变为active（此时的that不指向当前对象）
+			}
+		};
+	</script>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" id="btn1" value="点击" />
+	<div id="box">
+		<span>sadhhksjhksah</span>
+	</div>
+</body>
+</html>
+<script>
+	var odiv = document.getElementById('box');
+	var obtn1 = document.getElementById('btn1');
+	// alert(odiv.innerHTML);
+	obtn1.onclick = function(){
+		//alert( odiv.innerHTML );
+		odiv.innerHTML += '<div>sjadk</div>' ;
+	}
+</script>
